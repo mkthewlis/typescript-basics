@@ -13,3 +13,5 @@ TS errors during development, not deployment (unlike JS which shows errors in br
 - For objects, it infers that it is an object and infers the type of each key value pair
 
 - However, we can also be more specific by declaring the type of everything contained within the object
+
+- Tuples can be set by overriding TS ability to infer an array, eg. tuple = [number, string]
