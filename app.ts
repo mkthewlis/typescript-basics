@@ -27,3 +27,18 @@ console.log(combineValues(8, 8));
 // This is a valid TS type too, although 'undefined' type is mostly used when you want 
 // the function to specifically produce undefined
 let someValue = undefined;
+
+
+// Example using all of the above:
+// This function takes another function as a third param, which is itself defined with an
+// arrow function returning void (as it doesn't include it's own return statement)
+function addAndHandle(n1: number, n2: number, callBackFunc: (num: number) => void) {
+    const result = n1 + n2;
+    callBackFunc(result);
+}
+
+// Using the function below doesn't cause errors as it meets the types defined above
+addAndHandle(10, 20, (result) => {
+    console.log(result)
+});
+
