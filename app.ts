@@ -1,44 +1,25 @@
-function add(n1: number, n2: number) {
-    return n1 + n2;
+// 'Unknown' is better than any as it can be checked further on, unlike any which always
+// will accept any type
+let userInput: unknown;
+let userName: string;
+
+userInput = 5;
+userInput = 'Bob';
+
+// userName = userInput;
+// This will cause an error as 'unknown' cannot be assigned to another type (unlike 'any') 
+// Using a 'typeof' check can overcome this, as so:
+if (typeof userInput === 'string') {
+    userName = userInput;
 }
 
-// Here the return type is by default 'void' as it doesn't have a return statement
-// function printResult(num: number): void {
-function printResult(num: number) {
-    console.log('Result ' + num);
+// This function will always throw an error as it never returns anything, so it could include type:
+// function generateError(message: string, code: number): never {
+function generateError(message: string, code: number) {
+    throw {message: message, errorCode: code};
 }
 
-printResult(add(5, 12));
+generateError('An error occured!', 500);
 
-// We can make clear that a variable must always be a function:
-// let combineValues: Function;
-// combineValues = 5; this therefore won't work
-// HOWEVER, this would work as it is technically a function: 
-// combineValues = printResult; 
-
-// To avoid this, we can use arrow function notation with specific types added
-let combineValues: (a: number, b: number) => number;
-
-combineValues = add;
-
-console.log(combineValues(8, 8));
-
-
-// This is a valid TS type too, although 'undefined' type is mostly used when you want 
-// the function to specifically produce undefined
-let someValue = undefined;
-
-
-// Example using all of the above:
-// This function takes another function as a third param, which is itself defined with an
-// arrow function returning void (as it doesn't include it's own return statement)
-function addAndHandle(n1: number, n2: number, callBackFunc: (num: number) => void) {
-    const result = n1 + n2;
-    callBackFunc(result);
-}
-
-// Using the function below doesn't cause errors as it meets the types defined above
-addAndHandle(10, 20, (result) => {
-    console.log(result)
-});
-
+// Infinite loops are also of type 'never', eg this function body:
+// while (true) {};

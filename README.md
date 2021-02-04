@@ -1,6 +1,6 @@
 # Example app: TypeScript Introduction
 
-First project based on the 'Understanding TypeScript - 2021 Edition' course on Udemy.
+First introductory project based on the 'Understanding TypeScript - 2021 Edition' course on Udemy.
 
 ## Introduction to TypeScript notes:
 
@@ -16,7 +16,14 @@ TS errors during development, not deployment (unlike JS which shows errors in br
 - any: * (should be avoided as much as possible)
 
 *Additional types include:*
-- 
+- union: combining two or more specific types with a pipe | divider
+- literal: assigning a type to a specific string (or, when combined with union types, two or more strings)
+- aliases: set a custom type to then use elsewhere
+- object: when an alias is set to a specific object structure
+- function: can be set with arrow notation defining params and return type
+- void: when a function type doesn't include a return statement
+- unknown: not defined initially, although type can be checked later (eg. with if statement)
+- never: if a function always throws/ creates an infinite loop
 
 ### Notes on core types
 - TS is able to infer what type a value is, eg:let x = 3 (here TS infers that x is a number)
