@@ -15,6 +15,9 @@ TS errors during development, not deployment (unlike JS which shows errors in br
 - enum: enum {NEW, OLD} (create named global identifiers)
 - any: * (should be avoided as much as possible)
 
+*Additional types include:*
+- 
+
 ### Notes on core types
 - TS is able to infer what type a value is, eg:let x = 3 (here TS infers that x is a number)
 
@@ -25,3 +28,9 @@ TS errors during development, not deployment (unlike JS which shows errors in br
 - Tuples can be set by overriding TS ability to infer an array, eg. tuple = [number, string]
 
 - Enums allow you to define a set of named constants. This makes it easier to store more about a value by saving the number in the object, plus a name for it, eg enum Example { Three = 3, Four, Five } where Example.Five later also means the number 5.
+
+### Notes on function types
+
+- TS can infer what a function will return based on the types of the input parameters. However, this can be overridden by adding a different type that it should return, thereby throwing an error unless the function logic handles the conversion of types itself.
+
+- Functions that do not include a return statement are therefore 'void' types. This differs from 'undefined' function types, where they do have a return statement, but it usually just includes 'return;', thereby being undefined - this, however, is quite rare.
