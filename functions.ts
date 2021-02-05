@@ -42,3 +42,23 @@ addAndHandle(10, 20, (result) => {
     console.log(result)
 });
 
+// Example of arrow function with TS:
+const printOutput: (a: number | string) => void = output => console.log(output);
+
+printOutput(add(5, 2));
+
+
+// Example of arrow function with default value (has to be last param!):
+const addDefault = (a: number, b: number = 1) => a + b;
+
+printOutput(addDefault(5)); // logs 6 in the console
+
+// Example with rest parameters to accept unlimited amount of arguments:
+const restExampleAddition = (...numbers: number[]) => {
+    return numbers.reduce((curResult, curValue) => {
+        return curResult + curValue;
+    }, 0);
+};
+
+const utilisingRestExampleAddition = restExampleAddition(5, 10, 2, 3.7);
+console.log(utilisingRestExampleAddition);
