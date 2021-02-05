@@ -53,3 +53,5 @@ TS errors during development, not deployment (unlike JS which shows errors in br
 - Here you can specify which files to include or exclude from compilation, eg excluding "node_modules" (usually done by default as it holds all dependencies)
 
 - compilerOptions: target - lets you set which JS version to use when compiled; lib - specifies library files to be included with the assumption of defaults
+
+- More information about custom tsconfig.json settings can be found in the official docs: https://www.typescriptlang.org/docs/handbook/tsconfig-json.html 
